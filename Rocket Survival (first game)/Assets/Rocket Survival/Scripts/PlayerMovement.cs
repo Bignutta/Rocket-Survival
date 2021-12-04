@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
     /// PRIVATE ///
     private Rigidbody playerRB;
-    private Collider playerCollider;
 
     /// PUBLIC ///
     public float upThrustAmount = 1000f;
@@ -14,8 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        playerRB = GetComponent<Rigidbody>();
-        playerCollider = GetComponent<Collider>();    
+        playerRB = GetComponent<Rigidbody>();    
     }
 
     // Update is called once per frame
