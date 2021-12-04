@@ -1,22 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     /// PRIVATE ///
-    private Rigidbody playerRB;
+    Rigidbody playerRB;
+    AudioSource gameSounds;
+    bool playerShipIsThrust = false;
 
     /// PUBLIC ///
     public float upThrustAmount = 1000f;
-    public float rotationSpeed = 100f;
+    public float rotationSpeed = 100f;   
+    [SerializeField] AudioClip shipThrustAudio; 
 
     void Start()
     {
-        playerRB = GetComponent<Rigidbody>();    
+        playerRB = GetComponent<Rigidbody>();
+        gameSounds = GetComponent<AudioSource>();    
     }
 
-    // Update is called once per frame
     void Update()
     {
         ShipMovement();
@@ -26,8 +27,16 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             playerRB.AddRelativeForce(Vector3.up * upThrustAmount * Time.deltaTime);
-            Debug.Log("Trying too thrust");
+            if (!gameSounds.isPlaying)
+            {
+                gameSounds.Play();
+            }
         }
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            gameSounds.Stop();
+        }
+
         if(Input.GetKey(KeyCode.RightArrow))
         {
             playerRB.freezeRotation = true;
