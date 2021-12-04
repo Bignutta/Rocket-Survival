@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6343201860416012353}
   - component: {fileID: 6343201860416012352}
   - component: {fileID: 6343201860416012355}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Launch Pad
-  m_TagString: Untagged
+  m_TagString: Start Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -5,7 +5,6 @@ public class PlayerMovement : MonoBehaviour
     /// PRIVATE ///
     Rigidbody playerRB;
     AudioSource gameSounds;
-    bool playerShipIsThrust = false;
 
     /// PUBLIC ///
     public float upThrustAmount = 1000f;
